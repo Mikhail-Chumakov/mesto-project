@@ -1,0 +1,11 @@
+.cards__info {
+  width: 100%;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 31px;
+  background-color: #FFFFFF;
+  border-radius: 0 0 10px 10px;
+  margin: 0;
+}

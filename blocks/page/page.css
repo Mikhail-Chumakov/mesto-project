@@ -1,0 +1,17 @@
+.page {
+/*display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  background: rgba(0, 0, 0, 1);
+  max-width: 1280px;
+  min-width: 360px;
+  /* width: calc(100% - (2 * 200px)); */
+  margin: 0 auto;
+}
+
+/* @media screen and (max-width: 320px) {
+    .page {
+      width: calc(100% - 2 * 19px);
+      margin: 0 auto;
+    }
+  } */

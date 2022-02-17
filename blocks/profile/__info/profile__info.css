@@ -1,0 +1,22 @@
+.profile__info {
+  max-width: 336px;
+  display: flex;
+  /* align-self: baseline; */
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  column-gap: 18px;
+  row-gap: 16px;
+}
+/* 
+ПРОВЕРИТЬ!!!! */
+@media screen and (max-width: 320px) {
+  .profile__info {
+    /* display: flex; */
+    justify-content: center;
+    max-width: 282px;
+    column-gap: 10px;
+    row-gap: 14px;
+    margin-top: 26px;
+  }
+}
+

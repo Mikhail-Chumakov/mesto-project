@@ -1,0 +1,12 @@
+.profile__edit-button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__edit-button {
+    max-width: 18px;
+  }
+}
