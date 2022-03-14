@@ -28,6 +28,7 @@
     </section>
     <section class="elements">
       <ol class="cards">
+        <!-- 
         <li class="cards__item">
           <img class="cards__img" src="./images/karachaevsk.png">
           <div class="cards__info">
@@ -63,11 +64,11 @@
           <div class="cards__info">
             <h3 class="cards__title">Карачаево-Черкесия</h3>
             <button class="cards__heards_button"><img class="cards__heards" src="images/heart_logo.svg"></button>
-        </li>
+        </li> -->
       </ol>
     </section>
-
   </main>
+  
   <footer class="footer">
     <h4 class="footer__title">© 2020 Mesto Russia</h4>
   </footer>
@@ -85,6 +86,32 @@
       </form>
     </div>
   </section>
+
+  <section class="popup-add"> <!-- overlay-add -->
+    <div class="popup-add__container">
+      <button class="popup-add__close-button hover-active" type="button"><img class="popup__close-icon" src="./images/Close_Icon.svg"alt="закрыть"></button>
+      <form class="popup-add__form-add" name="editform">
+        <h5 class="popup-add__title">
+          Новое место
+        </h5>
+        <input class="popup-add__name" placeholder="Название" type="text" name="name">
+        <input class="popup-add__link" placeholder="Ссылка на картинку" type="text" name="speciality">
+        <button class="popup-add__create hover-active" type="submit" value="Создать">Создать</button>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- <template class="card-template">
+    <li class="cards__item">
+      <img class="cards__img" src="${linkCard}" alt="${nameCard}">
+      <div class="cards__info">
+        <h3 class="cards__title">${nameCard}</h3>
+        <button class="cards__heards_button"><img class="cards__heards" src="./images/heart_logo.svg"></button>
+      </div>
+      <button class="cards__delete-button"><img class="cards__delete" src="./images/Trash.svg"></button>
+    </li>
+  </template> -->
   <script src="./script.js"></script>
 </body>
 </html>

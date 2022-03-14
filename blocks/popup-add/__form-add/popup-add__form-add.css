@@ -1,0 +1,13 @@
+.popup-add__form-add {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 2 * 36px);
+  margin: 0 auto;
+/*min-height: 330px; */
+}
+
+@media screen and (max-width: 320px) {
+  .popup-add__form-add {
+    width: calc(100% - 2 * 22px);
+  }
+}
