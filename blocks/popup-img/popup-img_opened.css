@@ -1,0 +1,11 @@
+.popup-img_opened {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+/*   margin: 90px auto; */
+  /* transform: translate(-50%, -50%); */
+}
