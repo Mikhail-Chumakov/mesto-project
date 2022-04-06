@@ -11,10 +11,13 @@ let profileSubtitle = document.querySelector(".profile__subtitle");
 const popupCloseButton = popup.querySelector(".popup__close-button");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const popupSave = document.querySelector(".popup__save");
-let cards = document.querySelector(".cards");
+/* let cards = document.querySelector(".cards"); */
+
 
 popupName.value= profileTitle.textContent;
 popupSpeciality.value = profileSubtitle.textContent;
+
+// cards + popup add cards
 
 const buttonAdd = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup-add");
@@ -24,6 +27,7 @@ let popupAddContainer = document.querySelector(".popup-add__container");
 let overlayAdd = document.querySelector(".overlay-add");
 const popupCloseButtonAdd = document.querySelector(".popup-add__close-button");
 let popupContainerAdd = document.querySelector(".popup-add__container");
+const cards = document.querySelector(".cards");
 
 const initialCards = [
   {
@@ -52,96 +56,62 @@ const initialCards = [
   }
 ];
 
-// popup add cards
+const popupAddFormAdd = document.querySelector(".popup-add__form-add");
 
-for (let i = 0; i < initialCards.length; i++) {
-  //console.log(initialCards[i]);
-  cards.innerHTML += `
-  <li class="cards__item">
-  <input class="cards__img" type="image" src="${initialCards[i].link}" alt="${initialCards[i].link}">
-    <button class="cards__trash_button"><img class="cards__trash" src="./images/Trash.svg"></button>
-    <div class="cards__info">
-      <h3 class="cards__title">${initialCards[i].name}</h3>
-      <button class="cards__heards_button hover-active"><img class="cards__heards hover-active" src="images/heart_logo.svg"></button>
-    </div>
-  </li>
-  `;
-}
+const cardsTemplate = document.querySelector(".cards-template");
+/* const cardsItem = document.querySelector(".cards__item"); */
 
-function formSubmitHandler2 (evt) {
-  evt.preventDefault();
+popupAddFormAdd.addEventListener("submit", addCard);
 
-  popupСreate.addEventListener("click", function(evt) { 
-    cards.innerHTML =  `
-    <li class="cards__item">
-    <input class="cards__img" type="image" src="${document.querySelector(".popup-add__link").value}" alt="${document.querySelector(".popup-add__link").value}">
-      <button class="cards__trash_button"><img class="cards__trash" src="./images/Trash.svg"></button>
-      <div class="cards__info">
-        <h3 class="cards__title">${document.querySelector(".popup-add__name").value}</h3>
-        <button class="cards__heards_button"><img class="cards__heards" src="images/heart_logo.svg"></button>
-      </div>
-    </li>
-    ` + cards.innerHTML;
+function renderCards(obj) {
+  const newCard = cardsTemplate.content.cloneNode(true);
 
-    // написать условие, что if cardsItem >= 6 - удалить последнюю карточку
-    cards.removeChild(cards.lastChild);
+  newCard.querySelector(".cards__title").textContent = obj.name;
 
-    const cardsHeardsButton = cards.querySelectorAll(".cards__heards_button");
-    const cardsHeards = cards.querySelectorAll(".cards__heards");
-
-    for (let i = 0; cardsHeardsButton.length > i; i++) {
-      cardsHeardsButton[i].addEventListener("click", function() {
-        cardsHeards[i].classList.toggle("cards__heards-black");
-      });
-    }
-
-  });
-
-  popupСreate.addEventListener("click", function() {
-    popupAdd.classList.remove("popup-add_opened");
-    popupAdd.classList.add("popup-add");
-    /* overlayAdd.classList.remove("overlay-add"); */
-  });
-
-  const cardsTrashButton = document.querySelectorAll(".cards__trash_button");
-  const cardsItem = document.querySelectorAll(".cards__item");
+  newCard.querySelector(".cards__img").src = obj.link;
   
-  for (let j = 0; cardsItem.length > j; j++) {
-    for (let i = 0; cardsTrashButton.length > i; i++) {
-      cardsTrashButton[i].addEventListener("click", function() {
-        cardsItem[i].remove();
-      });
-    }
-  }
+  setListenerCards(newCard);
 
-  const popupImg = document.querySelector(".popup-img");
-  const cardsImg = document.querySelectorAll(".cards__img");
-  const cardsTitle = document.querySelectorAll(".cards__title"); // написать цикл для названий, что бы обращаться к popup-img__title
+  cards.append(newCard);
+};
 
-  for (let i = 0; cardsImg.length > i; i++){ 
-    cardsImg[i].addEventListener("click", function() {
-      popupImg.classList.add("popup-img_opened");
-      popupImg.classList.remove("popup-img");
+function addCard(event) {
+  event.preventDefault();
 
-      popupImg.innerHTML = `
-        <button class="popup-img__close-button hover-active" type="button"><img class="popup__close-icon" src="images/Close_Icon.svg"alt="закрыть">
-        </button>
-        <img class="popup-img__full-size" src="${cardsImg[i].src}">
-        <p class="popup-img__title">${document.querySelector(".popup-add__name").value}</p>
-        `;
-    });
-  }
+  const newCardTitle = event.currentTarget.querySelector(".popup-add__name").value;
+  /* console.log(newCardTitle); */
+  const newCardLink = event.currentTarget.querySelector(".popup-add__link").value;
+
+  renderCards({name: newCardTitle, link: newCardLink});
+
+  event.currentTarget.reset();
+
+  popupAddClose();
 }
 
+// удаление карточек
+function deleteCard(event) {
+  const card = event.currentTarget.closest(".cards__item");
+
+  card.remove();
+}
+
+function setListenerCards (card){
+  card.querySelector(".cards__trash_button").addEventListener("click", deleteCard);
+}
+
+initialCards.map(renderCards);
+
+function popupAddClose () {
+  popupAdd.classList.remove("popup-add_opened");
+  popupAdd.classList.add("popup-add");
+}
 document.addEventListener("keydown", function(event){
   if (event.key === "Escape") {
-    popupAdd.classList.remove("popup-add_opened");
-    popupAdd.classList.add("popup-add");
+    popupAddClose();
       /* overlay.classList.remove("overlay"); */
   }
 });
-
-popupContainerAdd.addEventListener("click", formSubmitHandler2);
 
 profileAddButton.addEventListener("click", function() {
   /* console.log("123"); */
@@ -151,8 +121,7 @@ profileAddButton.addEventListener("click", function() {
 });
 
 popupCloseButtonAdd.addEventListener("click", function() {
-  popupAdd.classList.remove("popup-add_opened");
-  popupAdd.classList.add("popup-add");
+  popupAddClose();
 });
 
 const cardsHeardsButton = cards.querySelectorAll(".cards__heards_button");
@@ -170,8 +139,8 @@ for (let i = 0; cardsHeardsButton.length > i; i++) {
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 
-function formSubmitHandler (evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+function formSubmitHandler (event) {
+  event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   
                                               // Так мы можем определить свою логику отправки.
                                               // О том, как это делать, расскажем позже.
@@ -226,7 +195,7 @@ document.addEventListener("keydown", function(event){
 // popup full size img
 // (так же создано в popup add cards)
 
-const popupImg = document.querySelector(".popup-img");
+/* const popupImg = document.querySelector(".popup-img");
 const cardsImg = document.querySelectorAll(".cards__img");
 const cardsTitle = document.querySelectorAll(".cards__title"); // написать цикл для названий, что бы обращаться к popup-img__title
 
@@ -247,15 +216,15 @@ for (let i = 0; cardsImg.length > i; i++){
     if (event.key === "Escape") {
       popupImg.classList.remove("popup-img_opened");
       popupImg.classList.add("popup-img");
-        /* overlay.classList.remove("overlay"); */
+        //overlay.classList.remove("overlay");
     }
   });
-}
+} */
 
 // удаление карточек
 // (так же создано в popup add cards)
 
-const cardsTrashButton = document.querySelectorAll(".cards__trash_button");
+/* const cardsTrashButton = document.querySelectorAll(".cards__trash_button");
 
 const cardsItem = document.querySelectorAll(".cards__item");
 
@@ -265,4 +234,4 @@ for (let j = 0; cardsItem.length > j; j++) {
       cardsItem[i].remove();
     });
   }
-}
+} */
