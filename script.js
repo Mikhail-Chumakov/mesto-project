@@ -71,8 +71,9 @@ function renderCards(obj) {
   newCard.querySelector(".cards__img").src = obj.link;
   
   setListenerCards(newCard);
-
+  
   cards.append(newCard);
+
 };
 
 function addCard(event) {
@@ -85,7 +86,7 @@ function addCard(event) {
   renderCards({name: newCardTitle, link: newCardLink});
 
   event.currentTarget.reset();
-
+  heards();
   popupAddClose();
 }
 
@@ -106,33 +107,34 @@ function popupAddClose () {
   popupAdd.classList.remove("popup-add_opened");
   popupAdd.classList.add("popup-add");
 }
+
 document.addEventListener("keydown", function(event){
   if (event.key === "Escape") {
     popupAddClose();
-      /* overlay.classList.remove("overlay"); */
   }
 });
 
 profileAddButton.addEventListener("click", function() {
-  /* console.log("123"); */
   popupAdd.classList.add("popup-add_opened");
   popupAdd.classList.remove("popup-add");
-  /* overlayAdd.classList.add("overlay-add"); */
 });
 
 popupCloseButtonAdd.addEventListener("click", function() {
   popupAddClose();
 });
 
-const cardsHeardsButton = cards.querySelectorAll(".cards__heards_button");
+function heards (){
+  const cardsHeardsButton = cards.querySelectorAll(".cards__heards_button");
 
-const cardsHeards = cards.querySelectorAll(".cards__heards");
+  const cardsHeards = cards.querySelectorAll(".cards__heards");
 
-for (let i = 0; cardsHeardsButton.length > i; i++) {
-  cardsHeardsButton[i].addEventListener("click", function() {
-    cardsHeards[i].classList.toggle("cards__heards-black");
-  });
+  for (let i = 0; cardsHeardsButton.length > i; i++) {
+    cardsHeardsButton[i].addEventListener("click", function() {
+      cardsHeards[i].classList.toggle("cards__heards-black");
+    });
+  }
 }
+heards();
 
 // popup name & speciality
 
@@ -195,11 +197,41 @@ document.addEventListener("keydown", function(event){
 // popup full size img
 // (так же создано в popup add cards)
 
-/* const popupImg = document.querySelector(".popup-img");
+const popupImg = document.querySelector(".popup-img");
 const cardsImg = document.querySelectorAll(".cards__img");
 const cardsTitle = document.querySelectorAll(".cards__title"); // написать цикл для названий, что бы обращаться к popup-img__title
+const popupImgFullSize = document.querySelector(".popup-img__full-size");
+const popupImgTitle = document.querySelector(".popup-img__title");
 
+/* cardsImg.currentTarget.addEventListener("click", imgFullSize); */
 for (let i = 0; cardsImg.length > i; i++){ 
+  for(let j = 0; cardsTitle.length > j; j++) {
+    cardsImg[i].addEventListener("click", function() {
+    popupImg.classList.add("popup-img_opened");
+    popupImg.classList.remove("popup-img");
+
+    popupImgFullSize.src = cardsImg[i].src; 
+    popupImgTitle.textContent = cardsTitle[i].textContent;
+
+    document.addEventListener("keydown", function(event){
+      if (event.key === "Escape") {
+        popupImg.classList.remove("popup-img_opened");
+        popupImg.classList.add("popup-img");
+      }
+    });
+  });}
+
+}
+/* function imgFullSize (event){
+  cardsImg.currentTarget.addEventListener("click", function() {
+    popupImg.classList.add("popup-img_opened");
+    popupImg.classList.remove("popup-img");
+
+    popupImgFullSize.src = cardsImg.link;
+    popupImgTitle.textContent = cardsImg.name;
+  });
+} */
+/* for (let i = 0; cardsImg.length > i; i++){ 
   cardsImg[i].addEventListener("click", function() {
     popupImg.classList.add("popup-img_opened");
     popupImg.classList.remove("popup-img");
@@ -210,28 +242,12 @@ for (let i = 0; cardsImg.length > i; i++){
       <img class="popup-img__full-size" src="${cardsImg[i].src}">
       <p class="popup-img__title">${document.querySelector(".popup-add__name").value}</p>
       `;
-  });
+  }); 
   
   document.addEventListener("keydown", function(event){
     if (event.key === "Escape") {
       popupImg.classList.remove("popup-img_opened");
       popupImg.classList.add("popup-img");
-        //overlay.classList.remove("overlay");
     }
   });
-} */
-
-// удаление карточек
-// (так же создано в popup add cards)
-
-/* const cardsTrashButton = document.querySelectorAll(".cards__trash_button");
-
-const cardsItem = document.querySelectorAll(".cards__item");
-
-for (let j = 0; cardsItem.length > j; j++) {
-  for (let i = 0; cardsTrashButton.length > i; i++) {
-    cardsTrashButton[i].addEventListener("click", function() {
-      cardsItem[i].remove();
-    });
-  }
-} */
+}*/
