@@ -1,13 +1,12 @@
 .popup-img__full-size {
-  display: block;
+  object-fit: contain;
   max-height: 540px;
   /* width: 100%; */
-  margin: 90px auto;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 320px) {
   .popup-img__full-size {
     max-height: 299px;
-    margin: 136px auto 133px;
   }
 }

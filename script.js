@@ -13,7 +13,6 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 const popupSave = document.querySelector(".popup__save");
 /* let cards = document.querySelector(".cards"); */
 
-
 popupName.value= profileTitle.textContent;
 popupSpeciality.value = profileSubtitle.textContent;
 
@@ -195,7 +194,6 @@ document.addEventListener("keydown", function(event){
 });
 
 // popup full size img
-// (так же создано в popup add cards)
 
 const popupImg = document.querySelector(".popup-img");
 const cardsImg = document.querySelectorAll(".cards__img");
