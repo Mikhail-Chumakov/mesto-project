@@ -60,6 +60,8 @@ const popupAddFormAdd = document.querySelector(".popup-add__form-add");
 const cardsTemplate = document.querySelector(".cards-template");
 /* const cardsItem = document.querySelector(".cards__item"); */
 
+const cardsItem = document.querySelectorAll(".cards__item");
+
 popupAddFormAdd.addEventListener("submit", addCard);
 
 function renderCards(obj) {
@@ -71,9 +73,9 @@ function renderCards(obj) {
   
   setListenerCards(newCard);
   
-  cards.append(newCard);
-
-};
+  cards.prepend(newCard);
+  
+}
 
 function addCard(event) {
   event.preventDefault();
@@ -85,8 +87,15 @@ function addCard(event) {
   renderCards({name: newCardTitle, link: newCardLink});
 
   event.currentTarget.reset();
-  heards();
+  
   popupAddClose();
+  
+/*   const cardsItem = document.querySelectorAll(".cards__item");
+  for(i=0; cardsItem.length > i; i++){
+    if (cardsItem.length >= 6){
+      cards.removeChild(cards.lastChild);
+    }
+  } */
 }
 
 // удаление карточек
@@ -202,24 +211,40 @@ const popupImgFullSize = document.querySelector(".popup-img__full-size");
 const popupImgTitle = document.querySelector(".popup-img__title");
 
 /* cardsImg.currentTarget.addEventListener("click", imgFullSize); */
-for (let i = 0; cardsImg.length > i; i++){ 
-  for(let j = 0; cardsTitle.length > j; j++) {
-    cardsImg[i].addEventListener("click", function() {
-    popupImg.classList.add("popup-img_opened");
-    popupImg.classList.remove("popup-img");
+function imgFullSize(){
+  for (let i = 0; cardsImg.length > i; i++){ 
+    for(let j = 0; cardsTitle.length > j; j++){
+      cardsImg[i].addEventListener("click", function(){
+        popupImg.classList.add("popup-img_opened");
+        popupImg.classList.remove("popup-img");
 
-    popupImgFullSize.src = cardsImg[i].src; 
-    popupImgTitle.textContent = cardsTitle[i].textContent;
+        popupImgFullSize.src = cardsImg[i].src; 
+        popupImgTitle.textContent = cardsTitle[i].textContent;
 
-    document.addEventListener("keydown", function(event){
-      if (event.key === "Escape") {
-        popupImg.classList.remove("popup-img_opened");
-        popupImg.classList.add("popup-img");
-      }
-    });
-  });}
-
+        document.addEventListener("keydown", function(event){
+          if (event.key === "Escape") {
+            popupImg.classList.remove("popup-img_opened");
+            popupImg.classList.add("popup-img");
+          }
+        });
+      });
+    }
+  }
 }
+
+imgFullSize();
+/* imgFullSize();
+ */
+/* function sixCards(){
+  const cardsItem = document.querySelectorAll(".cards__item");
+
+  for(i=0; cardsItem.length > i; i++){
+    if (cardsItem.length >= 6){
+      cards.removeChild(cards.lastChild);
+    }
+  }
+} */
+
 /* function imgFullSize (event){
   cardsImg.currentTarget.addEventListener("click", function() {
     popupImg.classList.add("popup-img_opened");
