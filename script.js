@@ -74,7 +74,8 @@ function renderCards(obj) {
   setListenerCards(newCard);
   
   cards.prepend(newCard);
-  
+  /* heards(); */
+  imgFullSize();
 }
 
 function addCard(event) {
@@ -105,8 +106,13 @@ function deleteCard(event) {
   card.remove();
 }
 
+/* function heardsCard(event){
+  const cardHear = event.currentTarget.closest(".cards__heards_button
+} */
+
 function setListenerCards (card){
   card.querySelector(".cards__trash_button").addEventListener("click", deleteCard);
+  card.querySelector(".cards__heards_button").addEventListener("click", heards);
 }
 
 initialCards.map(renderCards);
@@ -142,7 +148,7 @@ function heards (){
     });
   }
 }
-heards();
+/* heards(); */
 
 // popup name & speciality
 
@@ -204,14 +210,19 @@ document.addEventListener("keydown", function(event){
 
 // popup full size img
 
-const popupImg = document.querySelector(".popup-img");
+/* const popupImg = document.querySelector(".popup-img");
 const cardsImg = document.querySelectorAll(".cards__img");
-const cardsTitle = document.querySelectorAll(".cards__title"); // написать цикл для названий, что бы обращаться к popup-img__title
+const cardsTitle = document.querySelectorAll(".cards__title");
 const popupImgFullSize = document.querySelector(".popup-img__full-size");
-const popupImgTitle = document.querySelector(".popup-img__title");
+const popupImgTitle = document.querySelector(".popup-img__title"); */
 
 /* cardsImg.currentTarget.addEventListener("click", imgFullSize); */
 function imgFullSize(){
+  const popupImg = document.querySelector(".popup-img");
+  const cardsImg = document.querySelectorAll(".cards__img");
+  const cardsTitle = document.querySelectorAll(".cards__title");
+  const popupImgFullSize = document.querySelector(".popup-img__full-size");
+  const popupImgTitle = document.querySelector(".popup-img__title");
   for (let i = 0; cardsImg.length > i; i++){ 
     for(let j = 0; cardsTitle.length > j; j++){
       cardsImg[i].addEventListener("click", function(){
