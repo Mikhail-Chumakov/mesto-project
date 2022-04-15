@@ -11,7 +11,6 @@ let profileSubtitle = document.querySelector(".profile__subtitle");
 const popupCloseButton = popup.querySelector(".popup__close-button");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const popupSave = document.querySelector(".popup__save");
-/* let cards = document.querySelector(".cards"); */
 
 popupName.value= profileTitle.textContent;
 popupSpeciality.value = profileSubtitle.textContent;
@@ -58,7 +57,6 @@ const initialCards = [
 const popupAddFormAdd = document.querySelector(".popup-add__form-add");
 
 const cardsTemplate = document.querySelector(".cards-template");
-/* const cardsItem = document.querySelector(".cards__item"); */
 
 const cardsItem = document.querySelectorAll(".cards__item");
 
@@ -74,7 +72,7 @@ function renderCards(obj) {
   setListenerCards(newCard);
   
   cards.prepend(newCard);
-  /* heards(); */
+
   imgFullSize();
 }
 
@@ -82,7 +80,7 @@ function addCard(event) {
   event.preventDefault();
 
   const newCardTitle = event.currentTarget.querySelector(".popup-add__name").value;
-  /* console.log(newCardTitle); */
+
   const newCardLink = event.currentTarget.querySelector(".popup-add__link").value;
 
   renderCards({name: newCardTitle, link: newCardLink});
@@ -106,9 +104,6 @@ function deleteCard(event) {
   card.remove();
 }
 
-/* function heardsCard(event){
-  const cardHear = event.currentTarget.closest(".cards__heards_button
-} */
 
 function setListenerCards (card){
   card.querySelector(".cards__trash_button").addEventListener("click", deleteCard);
@@ -148,12 +143,8 @@ function heards (){
     });
   }
 }
-/* heards(); */
 
 // popup name & speciality
-
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
 
 function formSubmitHandler (event) {
   event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -181,17 +172,12 @@ function formSubmitHandler (event) {
       overlay.classList.remove("overlay");
     }
   });
-    // Вставьте новые значения с помощью textContent
 }
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
 
 popupContainer.addEventListener("click", formSubmitHandler);
 
 profileEditButton.addEventListener("click", function() {
     popup.classList.add("popup_opened");
-    /* overlay.classList.add("overlay"); */
 });
 
 popupCloseButton.addEventListener("click", function() {
@@ -204,19 +190,11 @@ popupCloseButton.addEventListener("click", function() {
 document.addEventListener("keydown", function(event){
     if (event.key === "Escape") {
         popup.classList.remove("popup_opened");
-        /* overlay.classList.remove("overlay"); */
     }
 });
 
 // popup full size img
 
-/* const popupImg = document.querySelector(".popup-img");
-const cardsImg = document.querySelectorAll(".cards__img");
-const cardsTitle = document.querySelectorAll(".cards__title");
-const popupImgFullSize = document.querySelector(".popup-img__full-size");
-const popupImgTitle = document.querySelector(".popup-img__title"); */
-
-/* cardsImg.currentTarget.addEventListener("click", imgFullSize); */
 function imgFullSize(){
   const popupImg = document.querySelector(".popup-img");
   const cardsImg = document.querySelectorAll(".cards__img");
@@ -244,44 +222,3 @@ function imgFullSize(){
 }
 
 imgFullSize();
-/* imgFullSize();
- */
-/* function sixCards(){
-  const cardsItem = document.querySelectorAll(".cards__item");
-
-  for(i=0; cardsItem.length > i; i++){
-    if (cardsItem.length >= 6){
-      cards.removeChild(cards.lastChild);
-    }
-  }
-} */
-
-/* function imgFullSize (event){
-  cardsImg.currentTarget.addEventListener("click", function() {
-    popupImg.classList.add("popup-img_opened");
-    popupImg.classList.remove("popup-img");
-
-    popupImgFullSize.src = cardsImg.link;
-    popupImgTitle.textContent = cardsImg.name;
-  });
-} */
-/* for (let i = 0; cardsImg.length > i; i++){ 
-  cardsImg[i].addEventListener("click", function() {
-    popupImg.classList.add("popup-img_opened");
-    popupImg.classList.remove("popup-img");
-
-    popupImg.innerHTML = `
-      <button class="popup-img__close-button hover-active" type="button"><img class="popup__close-icon" src="images/Close_Icon.svg"alt="закрыть">
-      </button>
-      <img class="popup-img__full-size" src="${cardsImg[i].src}">
-      <p class="popup-img__title">${document.querySelector(".popup-add__name").value}</p>
-      `;
-  }); 
-  
-  document.addEventListener("keydown", function(event){
-    if (event.key === "Escape") {
-      popupImg.classList.remove("popup-img_opened");
-      popupImg.classList.add("popup-img");
-    }
-  });
-}*/
