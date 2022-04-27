@@ -141,6 +141,7 @@ function createCards(obj) {
   newCard.querySelector(".cards__title").textContent = obj.name;
 
   newCard.querySelector(".cards__img").src = obj.link;
+  newCard.querySelector(".cards__img").alt = obj.name;
 
   setListenerCards(newCard);
   heards();
