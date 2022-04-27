@@ -1,7 +1,6 @@
 .popup-img__full-size {
   object-fit: contain;
   max-height: 540px;
-  /* width: 100%; */
   margin: 0 auto;
 }
 
