@@ -63,10 +63,6 @@ popupImgCloseButton.addEventListener("click", function() {
 
 popupAddFormAdd.addEventListener("submit", addCard);
 
-initialCards.forEach(function(el){
-  cards.prepend(createCards(el));
-});
-
 // functions
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -118,6 +114,13 @@ function addCard(event) {
   
   closePopup(popupAdd);
 }
+
+function renderCards () {
+  initialCards.forEach(function(el){
+    cards.prepend(createCards(el));
+  });
+}
+renderCards();
 
 function handleProfileFormSubmit (event) {
   event.preventDefault();

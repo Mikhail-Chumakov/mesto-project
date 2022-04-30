@@ -5,8 +5,13 @@
   padding: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 980px) {
   .profile__edit-button {
     max-width: 18px;
   }
 }
+/* @media screen and (max-width: 320px) {
+  .profile__edit-button {
+    max-width: 18px;
+  }
+} */

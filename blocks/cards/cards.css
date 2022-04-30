@@ -2,19 +2,25 @@
   display: flex;
   flex-direction: row;
   max-width: 880px;
+  /* justify-content: center; */
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   gap: 17px;
 /*   row-gap: 17px;
   column-gap: 20px; */
   padding: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 980px) {
   .cards {
     /* flex-direction: column; */
     gap: 20px;
   }
 }
+/* @media screen and (max-width: 320px) {
+  .cards {
+    gap: 20px;
+  }
+} */

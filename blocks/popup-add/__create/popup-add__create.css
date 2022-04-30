@@ -11,7 +11,7 @@
     margin-top: 48px;
   }
   
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 980px) {
     .popup-add__create {
       max-width: 238px;
       margin: 0;

@@ -9,7 +9,7 @@
 }
 /* 
 ПРОВЕРИТЬ!!!! */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 980px) {
   .profile__info {
     /* display: flex; */
     justify-content: center;
@@ -19,4 +19,15 @@
     margin-top: 26px;
   }
 }
+
+/* @media screen and (max-width: 320px) {
+  .profile__info {
+    
+    justify-content: center;
+    max-width: 282px;
+    column-gap: 10px;
+    row-gap: 14px;
+    margin-top: 26px;
+  }
+} */
 

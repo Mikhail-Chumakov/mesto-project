@@ -6,7 +6,7 @@
 /*min-height: 330px; */
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 980px) {
   .popup-add__form-add {
     width: calc(100% - 2 * 22px);
   }

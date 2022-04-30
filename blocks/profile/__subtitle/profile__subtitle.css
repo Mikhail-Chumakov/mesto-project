@@ -10,7 +10,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 980px) {
   .profile__subtitle {
     max-width: 282px;
     font-family: Inter;
@@ -19,3 +19,12 @@
     text-align: center;
   }
 } 
+/* @media screen and (max-width: 320px) {
+  .profile__subtitle {
+    max-width: 282px;
+    font-family: Inter;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}  */
