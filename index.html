@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="спринт 04. Чумакова Михаила на Яндекс.Практикуме">
-  <meta name="keywords" content="html, css, js">
-  <meta name="author" content="Чумаков Михаил">
-  <link rel="stylesheet" href="./pages/index.css">
-  <title>Место</title>
-</head>
-<body class="page">
-  <header class="header">
-    <img class="header__logo" src="./images/mesto_logo.png">
-    <div class="header__line"></div>
-  </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="спринт 04. Чумакова Михаила на Яндекс.Практикуме">
+    <meta name="keywords" content="html, css, js">
+    <meta name="author" content="Чумаков Михаил">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Место</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/mesto_logo.png">
+      <div class="header__line"></div>
+    </header>
 
-  <main class="content">
-    <section class="profile">
-      <img class="profile__photo" src="images/kusto.png">
-      <div class="profile__info">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button hover-active"><img class="profile__icon" src="./images/pencil_icon.svg"></button>
-        <h2 class="profile__subtitle">Исследователь океана</h2>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__photo" src="images/kusto.png">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button hover-active"><img class="profile__icon" src="./images/pencil_icon.svg"></button>
+          <h2 class="profile__subtitle">Исследователь океана</h2>
+        </div>
+        <button class="profile__add-button hover-active"><div class="profile__icon-add"></div></button>
+      </section>
+      <section class="elements">
+        <ol class="cards">
+
+        </ol>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <h4 class="footer__title">© 2020 Mesto Russia</h4>
+    </footer>
+
+    <section class="popup popup_edit">
+      <div class="popup__container">
+        <button class="popup__close-button hover-active" type="button"><img class="popup__close-icon" src="./images/Close_Icon.svg"alt="закрыть"></button>
+        <form class="popup__form" name="editform">
+          <h5 class="popup__title">
+            Редактировать профиль
+          </h5>
+          <input class="popup__name" type="text" name="name">
+          <input class="popup__speciality" type="text" name="speciality">
+          <button class="popup__save hover-active" type="submit" value="Сохранить">Сохранить</button>
+        </form>
       </div>
-      <button class="profile__add-button hover-active"><div class="profile__icon-add"></div></button>
     </section>
-    <section class="elements">
-      <ol class="cards">
 
-      </ol>
-    </section>
-  </main>
-  
-  <footer class="footer">
-    <h4 class="footer__title">© 2020 Mesto Russia</h4>
-  </footer>
-
-  <section class="popup popup_edit">
-    <div class="popup__container">
-      <button class="popup__close-button hover-active" type="button"><img class="popup__close-icon" src="./images/Close_Icon.svg"alt="закрыть"></button>
-      <form class="popup__form" name="editform">
-        <h5 class="popup__title">
-          Редактировать профиль
-        </h5>
-        <input class="popup__name" type="text" name="name">
-        <input class="popup__speciality" type="text" name="speciality">
-        <button class="popup__save hover-active" type="submit" value="Сохранить">Сохранить</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="popup popup-add">
-    <div class="popup-add__container">
-      <button class="popup__close-button popup-add__close-button hover-active" type="button"><img class="popup__close-icon" src="./images/Close_Icon.svg"alt="закрыть"></button>
-      <form class="popup-add__form-add" name="editform">
-        <h5 class="popup-add__title">
-          Новое место
-        </h5>
-        <input class="popup-add__name" placeholder="Название" type="text" name="name">
-        <input class="popup-add__link" placeholder="Ссылка на картинку" type="url" name="link">
-        <button class="popup-add__create hover-active" type="submit" value="Создать">Создать</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="popup popup-img">
-    <div class="popup-img__container">
-      <button class="popup__close-button popup-img__close-button hover-active" type="button"><img class="popup__close-icon" src="images/Close_Icon.svg"alt="закрыть">
-      </button>
-      <img class="popup-img__full-size" src="" alt="">
-      <p class="popup-img__title"></p>
-    </div>
-  </section>
-
-  <template class="cards-template">
-    <li class="cards__item">
-      <img class="cards__img" type="image" src="" alt="">
-      <button class="cards__trash_button"><img class="cards__trash" src="./images/Trash.svg"></button>
-      <div class="cards__info">
-        <h3 class="cards__title"></h3>
-        <button class="cards__heards_button hover-active"><img class="cards__heards hover-active" src="images/heart_logo.svg"></button>
+    <section class="popup popup-add">
+      <div class="popup-add__container">
+        <button class="popup__close-button popup-add__close-button hover-active" type="button"><img class="popup__close-icon" src="./images/Close_Icon.svg"alt="закрыть"></button>
+        <form class="popup-add__form-add" name="editform">
+          <h5 class="popup-add__title">
+            Новое место
+          </h5>
+          <input class="popup-add__name" placeholder="Название" type="text" name="name">
+          <input class="popup-add__link" placeholder="Ссылка на картинку" type="url" name="link">
+          <button class="popup-add__create hover-active" type="submit" value="Создать">Создать</button>
+        </form>
       </div>
-    </li>
-  </template>
-  <script src="./scripts/initialCards.js"></script>
-  <script src="./scripts/script.js"></script>
-</body>
+    </section>
+
+    <section class="popup popup-img">
+      <div class="popup-img__container">
+        <button class="popup__close-button popup-img__close-button hover-active" type="button"><img class="popup__close-icon" src="images/Close_Icon.svg"alt="закрыть">
+        </button>
+        <img class="popup-img__full-size" src="" alt="">
+        <p class="popup-img__title"></p>
+      </div>
+    </section>
+
+    <template class="cards-template">
+      <li class="cards__item">
+        <img class="cards__img" type="image" src="" alt="">
+        <button class="cards__trash_button"><img class="cards__trash" src="./images/Trash.svg"></button>
+        <div class="cards__info">
+          <h3 class="cards__title"></h3>
+          <button class="cards__heards_button hover-active"><img class="cards__heards hover-active" src="images/heart_logo.svg"></button>
+        </div>
+      </li>
+    </template>
+    <script src="./scripts/initialCards.js"></script>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>
