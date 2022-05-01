@@ -37,12 +37,6 @@ profileEditButton.addEventListener("click", function() {
   openPopup(popupEdit);
 });
 
-popupForm.addEventListener("submit", function() {
-  profileTitle.textContent = popupName.value;
-  profileSubtitle.textContent = popupSpeciality.value;
-  closePopup(popupEdit);
-});
-
 closePopupButton.addEventListener("click", function() {
   closePopup(popupEdit);
 });
@@ -127,6 +121,10 @@ function handleProfileFormSubmit (event) {
 
   popupName.textContent = profileTitle.value; 
   popupSpeciality.textContent = profileSubtitle.value;
+
+  profileTitle.textContent = popupName.value;
+  profileSubtitle.textContent = popupSpeciality.value;
+  closePopup(popupEdit);
 }
 
 function imgFullSize(event){
